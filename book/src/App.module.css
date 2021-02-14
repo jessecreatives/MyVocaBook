@@ -1,0 +1,13 @@
+/* general */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+/* colors */
+:root {
+  --primary: #123C69;
+  --accent: #AC3B61;
+  --white: #FFF;
+}

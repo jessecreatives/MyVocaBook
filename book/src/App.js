@@ -2,9 +2,11 @@ import React from 'react';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import LanguageLinkList from './components/LanguageLinkList';
 import Vocabulary from './components/Vocabulary';
+import Header from './components/Header';
 
 const App = () => (
   <Router>
+    <Header />
     <Switch>
       <Route exact path="/">
         <LanguageLinkList />
