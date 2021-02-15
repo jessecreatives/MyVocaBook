@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import '../App.css';
 
 export default function Header() {
     return (
-        <header className="w-100">
-            Vocabulary Book
-        </header>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center">
+          <h1 className="text-center text-white">Vocabulary Book</h1>
+        </nav>
     )
 }

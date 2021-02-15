@@ -1,0 +1,39 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+    height: 100%;
+}
+body {
+    height: 100%;
+    font-size: 1.5rem;
+}
+ul {
+    list-style: none;
+}
+.wrapper {
+    min-height: 100vh;
+}
+.btn {
+    display: block;
+    padding: 1rem auto;
+}
+.btn.btn-lg {
+    width: 80%;
+    max-width: 80rem;
+    margin: 0 auto;
+}
+/* fonts */
+.fs1 {
+    font-size: 3.5rem;
+}
+.fs2 {
+    font-size: 2rem;
+}
+.fs3 {
+    font-size: 1.5rem;
+}
+.fs4 {
+    font-style: 1.2rem;
+}
