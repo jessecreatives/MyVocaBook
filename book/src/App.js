@@ -1,26 +1,30 @@
-import React from 'react';
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import React, {useState} from 'react';
+import {BrowserRouter as Router, Switch, Route, Link, useLocation} from 'react-router-dom';
 import LanguageLinkList from './components/LanguageLinkList';
 import Vocabulary from './components/Vocabulary';
-import Header from './components/Header';
 import './App.css';
 
-const App = () => (
-  <>
-    <Header />
-    <div className="bg-primary wrapper pt-5">
+const App = () => {
+  const [path, setPath] = useState('/');
+
+  const handleLocationChange = path => {
+    setPath(path);
+  }
+
+  return (
+    <>
       <Router>
         <Switch>
           <Route exact path="/">
-            <LanguageLinkList />
+            <LanguageLinkList handleLocationChange={(path) => handleLocationChange(path)} />
           </Route>
           <Route path="/lang/:id">
-            <Vocabulary />
+            <Vocabulary handleLocationChange={(path) => handleLocationChange(path)} />
           </Route>
         </Switch>
       </Router>
-    </div>
-  </>
-);
+    </>
+  );
+};
 
 export default App;
