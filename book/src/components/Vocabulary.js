@@ -1,11 +1,36 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link, useParams, useLocation} from 'react-router-dom';
 import {data} from '../data';
 import Header from './Header';
 
+const InputWithLabel = ({id, formDefinitionLabel, value, onChange}) => (
+    <>
+        <label htmlFor={id}>{ formDefinitionLabel } {id}:</label>
+        <input type="text" className="form-control mb-4" id={id} value={ value } onChange={ onChange } />
+    </>
+);
+
+const ListOfInputs = ({ list }) => 
+    list.map(item => {
+        const { id, formDefinitionLabel, value, onChange } = item;
+        return (
+            <InputWithLabel
+                id={ id }
+                formDefinitionLabel={ formDefinitionLabel }
+                value={ value }
+                onChange={onChange}
+            />
+        );
+    });
+
 export default function Vocabulary() {
-    let {id} = useParams();
-    const lang = data.languages.find(lang => lang.id === id);
+    const [lang, setLang] = useState({});
+
+    useEffect(() => {
+        let { id } = useParams();
+        const lang = data.languages.find(lang => lang.id === id);
+        setLang({ ...lang });
+    }, [id]);
 
     const [word, setWord] = useState({
         title: '',
@@ -13,16 +38,25 @@ export default function Vocabulary() {
         examples: []
     });
     const [words, setWords] = useState(lang.words);
+
     const [isFormOpen, setIsFormOpen] = useState(false);
 
-    const [newWord, setNewWord] = useState('');
-    const [newDefinition1, setNewDefinition1] = useState('');
-    const [newDefinition2, setNewDefinition2] = useState('');
-    const [newDefinition3, setNewDefinition3] = useState('');
+    const [defInputNum, setDefInputNum] = useState(3);
+    const [exampleInputNum, setExampleInputNum] = useState(3);
 
-    const [newExample1, setNewExample1] = useState('');
-    const [newExample2, setNewExample2] = useState('');
-    const [newExample3, setNewExample3] = useState('');
+    const [defInputs, setDefInputs] = useState([]);
+    for (let i = 0; i < defInputNum; i++) {
+        setDefInputs([...defInputs, <>
+            <label htmlFor={ `definition${i + 1}` }>{ formDefinitionLabel } { i + 1 }:</label>
+            <input type="text" className="form-control mb-4" id={ `definition${i + 1}` } value={  } onChange={ e => setNewDefinition1(e.target.value) } />
+        </>]);
+    }
+
+    const handleAddInput = (e) => {
+        setDefInputs([...defInputs, <>
+            
+        </>]);
+    }
 
     const handleOpenDetail = e => {
         setWord({...words.find(word => word.title === e.target.value)});
@@ -32,8 +66,9 @@ export default function Vocabulary() {
         setIsFormOpen(!isFormOpen);
     }
 
-    const handleAddNewWord = (e) => {
+    const handleAddNewWord = e => {
         e.preventDefault();
+
         setWords([...words, { e, title: newWord, pronounce: '', definitions: [newDefinition1, newDefinition2, newDefinition3], examples: [newExample1, newExample2, newExample3] }]);
         setNewWord('');
         setNewDefinition1('');
@@ -51,6 +86,7 @@ export default function Vocabulary() {
     let formExampleLabel = '';
     let formDefinitionHelp = '';
     let formExampleHelp = '';
+
     switch (lang.id) {
         case 'jp':
             definition = '定義';
@@ -87,9 +123,7 @@ export default function Vocabulary() {
                                 <label htmlFor="word">{ formWordLabel}:</label>
                                 <input type="text" className="form-control" id="word" value={ newWord } onChange={e => setNewWord(e.target.value)}/>
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="definitions">{ formDefinitionLabel}:</label>
-                                <input type="text" className="form-control mb-4" id="definitions" value={newDefinition1} onChange={e => setNewDefinition1(e.target.value)} />
+                            <div className="form-group">                   
                                 <input type="text" className="form-control mb-4" id="definitions" value={newDefinition2} onChange={e => setNewDefinition2(e.target.value)} />
                                 <input type="text" className="form-control" id="definitions" aria-describedby="definitionHelp" value={newDefinition3} onChange={e => setNewDefinition3(e.target.value)} />
                                 <small id="definitionHelp" className="form-text text-muted">{formDefinitionHelp }</small>
