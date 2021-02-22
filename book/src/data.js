@@ -3,6 +3,13 @@ export const data = {
         {
             id: 'jp',
             name: '日本語',
+            definition: '定義',
+            example: '例文',
+            formWordLabel: "新単語",
+            formDefinitionLabel: "定義",
+            formExampleLabel: "例文",
+            formDefinitionHelp: '後でも追加可能です。',
+            formExampleHelp: '後でも追加可能です。',
             words: [
                 {
                     title: '幸せ',
@@ -32,6 +39,13 @@ export const data = {
         {
             id: 'en',
             name: 'English',
+            definition: 'Definitions',
+            example: 'Examples',
+            formWordLabel: "New Word",
+            formDefinitionLabel: "Definitions",
+            formExampleLabel: "Examples",
+            formDefinitionHelp: 'You can add more definitions later.',
+            formExampleHelp: 'You can add more examples later.',
             words: [
                 {
                     title: 'pretext',
@@ -63,4 +77,14 @@ export const data = {
             ]
         },
     ]
-}
+};
+export const inputs = [
+    {
+        id: 1,
+        value: ''
+    },
+    {
+        id: 2,
+        value: ''
+    }
+];
