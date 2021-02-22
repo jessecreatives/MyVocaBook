@@ -124,8 +124,7 @@ export default function Vocabulary() {
                                 <input type="text" className="form-control" id="word" value={ newWord } onChange={e => setNewWord(e.target.value)}/>
                             </div>
                             <div className="form-group">                   
-                                <input type="text" className="form-control mb-4" id="definitions" value={newDefinition2} onChange={e => setNewDefinition2(e.target.value)} />
-                                <input type="text" className="form-control" id="definitions" aria-describedby="definitionHelp" value={newDefinition3} onChange={e => setNewDefinition3(e.target.value)} />
+                                <ListOfInputs list={} />
                                 <small id="definitionHelp" className="form-text text-muted">{formDefinitionHelp }</small>
                             </div>
                             <div className="form-group">
