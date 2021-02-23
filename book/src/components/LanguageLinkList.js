@@ -1,10 +1,9 @@
 import React from 'react';
-import {Link, useLocation} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {data} from '../data';
 import TopHeader from './TopHeader';
 
-export default function LanguageLinkList({handleLocationChange}) {
-    let location = useLocation();
+export default function LanguageLinkList() {
 
     return (
         <>
