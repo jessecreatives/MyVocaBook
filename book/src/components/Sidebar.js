@@ -6,7 +6,7 @@ export default function Sidebar({words, onClick}) {
             <ul>
                 { words.map(word => (
                     <li key={ word.title }>
-                        <button type="button" name={word.title} onClick={onClick}>{ word.title }</button>
+                        <button type="button" name={word.id} onClick={onClick}>{ word.title }</button>
                     </li>
                 ))}
             </ul>

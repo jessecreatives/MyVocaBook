@@ -50,6 +50,7 @@ export const data = {
             formExampleHelp: 'You can add more examples later.',
             words: [
                 {
+                    id: 0,
                     title: 'pretext',
                     pronounce: 'pri-tekst',
                     definitions: [
@@ -61,6 +62,7 @@ export const data = {
                     ]
                 },
                 {
+                    id: 1,
                     title: 'hard',
                     pronounce: 'ha-d',
                     definitions: [
@@ -80,13 +82,3 @@ export const data = {
         },
     ]
 };
-export const inputs = [
-    {
-        id: 1,
-        value: ''
-    },
-    {
-        id: 2,
-        value: ''
-    }
-];
