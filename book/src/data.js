@@ -12,6 +12,7 @@ export const data = {
             formExampleHelp: '後でも追加可能です。',
             words: [
                 {
+                    id: 0,
                     title: '幸せ',
                     pronounce: 'しあわせ',
                     definitions: [
@@ -24,6 +25,7 @@ export const data = {
                     ]
                 },
                 {
+                    id: 1,
                     title: '成功する',
                     pronounce: 'せいこうする',
                     definitions: [

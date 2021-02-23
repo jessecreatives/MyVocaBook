@@ -11,13 +11,21 @@ export default function Vocabulary() {
     const lang = data.languages.find(lang => lang.id === id)
 
     const [word, setWord] = useState({});
+    const [words, setWords] = useState({words: lang.words});
     const [isDetailOpen, setIsDetailOpen] = useState(false);
 
     const handleOnClick = (e) => {
         setWord(lang.words.find(word => word.title === e.target.name));
-        console.log(word);
-        
         setIsDetailOpen(!isDetailOpen);
+    }
+
+    const handleOnChange = (e) => {
+        const newWord = { ...word, title: e.target.value }
+        setWord(newWord);
+        const newWords = words.words.map(w => w.title === e.target.value ? newWord : w)
+        setWords({words: newWords});
+        console.log(words);
+        
     }
 
     return (
@@ -25,9 +33,11 @@ export default function Vocabulary() {
             <Header /> 
             <div className="row">
                 {/* sidebar */ }
-                <Sidebar lang={lang} onClick={handleOnClick} />
+                <Sidebar words={words.words} onClick={handleOnClick} />
                 {/* detail */ }
-                <Detail word={word} />
+                <Detail word={ word }>
+                    <input type="text" value={ word.title } onChange={handleOnChange}/>
+                </Detail>
             </div>
         </>
     )
