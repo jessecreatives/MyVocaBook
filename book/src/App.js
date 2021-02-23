@@ -5,21 +5,15 @@ import Vocabulary from './components/Vocabulary';
 import './App.css';
 
 const App = () => {
-  const [path, setPath] = useState('/');
-
-  const handleLocationChange = path => {
-    setPath(path);
-  }
-
   return (
     <>
       <Router>
         <Switch>
           <Route exact path="/">
-            <LanguageLinkList handleLocationChange={(path) => handleLocationChange(path)} />
+            <LanguageLinkList />
           </Route>
           <Route path="/lang/:id">
-            <Vocabulary handleLocationChange={(path) => handleLocationChange(path)} />
+            <Vocabulary />
           </Route>
         </Switch>
       </Router>
