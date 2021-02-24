@@ -11,5 +11,5 @@ export default function Sidebar({words, onClick}) {
                 ))}
             </ul>
         </div>
-    )
+    ) 
 }

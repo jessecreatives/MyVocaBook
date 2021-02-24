@@ -9,9 +9,13 @@ export default function Detail({activeWord, children, ...props}) {
             ) : (
                 <>
                     <h2 onClick={() => setIsEditing(true)}>{activeWord.title}</h2>
-                        <p onClick={ () => setIsEditing(true) }>{ activeWord.pronounce }</p>
-                        {activeWord.definitions.map(definition => (
+                    <p onClick={ () => setIsEditing(true) }>{ activeWord.pronounce }</p>
+                    {activeWord.definitions.map(definition => (
                         <p onClick={() => setIsEditing(true)} key={definition.id}>{definition.value}</p>
+                        
+                    )) }
+                    {activeWord.examples.map(example => (
+                        <p onClick={() => setIsEditing(true)} key={example.id}>{example.value}</p>
                     ))}
                 </>
             )}

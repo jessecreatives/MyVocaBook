@@ -14,7 +14,8 @@ export default function Vocabulary() {
         id: null,
         title: '',
         pronounce: '',
-        definitions: []
+        definitions: [],
+        examples: []
     });
 
     const [words, setWords] = useState(lang.words);
@@ -27,8 +28,8 @@ export default function Vocabulary() {
 
     const handleOnClick = (e) => {
         const word = words.find(word => word.id.toString() === e.target.name);
-        const { id, title, pronounce, definitions } = word;
-        setActiveWord({ id, title, pronounce, definitions });
+        const { id, title, pronounce, definitions, examples } = word;
+        setActiveWord({ id, title, pronounce, definitions, examples });
         setIsDetailOpen(!isDetailOpen);
     }
 
@@ -38,6 +39,10 @@ export default function Vocabulary() {
 
     const handleOnDefChange = (e) => {
         setActiveWord({ ...activeWord, definitions: [...activeWord.definitions.map(d => d.id === e.target.name ? {...d, value: e.target.value} : d)] });
+    }
+
+    const handleOnExampleChange = (e) => {
+        setActiveWord({ ...activeWord, examples: [...activeWord.examples.map(example => example.id === e.target.name ? {...example, value: e.target.value} : example)] });
     }
 
     return (
@@ -52,6 +57,9 @@ export default function Vocabulary() {
                     <input type="text" name="pronounce" value={ activeWord.pronounce } onChange={ handleOnChange } />
                     { activeWord.definitions.map(definition => (
                         <input key={definition.id} type="text" name={definition.id} value={ definition.value } onChange={ handleOnDefChange } />
+                    )) }
+                    { activeWord.examples.map(example => (
+                        <input key={example.id} type="text" name={example.id} value={ example.value } onChange={ handleOnExampleChange } />
                     ))}
                 </Detail>
             </div>

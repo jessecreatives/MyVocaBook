@@ -26,8 +26,14 @@ export const data = {
                         }
                     ],
                     examples: [
-                        '私は幸せに感じています。',
-                        '美味しいものを食べて幸せ！'
+                        {
+                            id: 'example1',
+                            value: '私は幸せに感じています。'
+                        },
+                        {
+                            id: 'example2',
+                            value: '美味しいものを食べて幸せ！'
+                        }
                     ]
                 },
                 {
@@ -41,8 +47,14 @@ export const data = {
                         }
                     ],
                     examples: [
-                        '私は必ず成功するんだ！',
-                        '成功した人々の共通点'
+                        {
+                            id: 'example1',
+                            value: '私は必ず成功するんだ！',
+                        },
+                        {
+                            id: 'example2',
+                            value: '成功した人々の共通点'
+                        }
                     ]
                 }
             ]
@@ -62,29 +74,61 @@ export const data = {
                     id: 0,
                     title: 'pretext',
                     pronounce: 'pri-tekst',
-                    definitions: {
-                        definition1: 'a reason given in justification of a course of action that is not the real reason.'
-                    },
+                    definitions: [
+                        {
+                            id: 'definition1',
+                            value: 'a reason given in justification of a course of action that is not the real reason.'
+                        }
+                    ],
                     examples: [
-                        'the rebels had the perfect pretext for making their move',
-                        'That was just a pretext'
+                        {
+                            id: 'example1',
+                            value: 'the rebels had the perfect pretext for making their move',
+                        },
+                        {
+                            id: 'example2',
+                            value: 'That was just a pretext'
+                        }
                     ]
                 },
                 {
                     id: 1,
                     title: 'hard',
                     pronounce: 'ha-d',
-                    definitions: {
-                        definition1: 'solid, firm, and rigid; not easily broken, bent, or pierced.',
-                        definition2: 'done with a great deal of force or strength.',
-                        definition3: 'with a great deal of effort.',
-                        definition4: 'so as to be solid or firm.'
-                    },
+                    definitions: [
+                        {
+                            id: 'definition1',
+                            value: 'solid, firm, and rigid; not easily broken, bent, or pierced.',
+                        },    
+                        {
+                            id: 'definition2',
+                            value: 'done with a great deal of force or strength.'
+                        },
+                        {
+                            id: 'definition3',
+                            value: 'with a great deal of effort.'
+                        },
+                        {
+                            id: 'definition4',
+                            value: 'so as to be solid or firm.'
+                        }],
                     examples: [
-                        'the slate broke on the hard floor',
-                        'a hard whack',
-                        'they work hard at school',
-                        'the mortar has set hard'
+                        {
+                            id: 'example1',
+                            value: 'the rebels had the perfect pretext for making their move',
+                        },
+                        {
+                            id: 'example2',
+                            value: 'That was just a pretext'
+                        },
+                        {
+                            id: 'example3',
+                            value: 'the rebels had the perfect pretext for making their move',
+                        },
+                        {
+                            id: 'example4',
+                            value: 'That was just a pretext'
+                        }
                     ]
                 }
             ]
