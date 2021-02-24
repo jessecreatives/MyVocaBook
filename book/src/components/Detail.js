@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function Detail({activeWord, children, ...props}) {
+export default function Detail({activeWord, children, handleOnDelete, ...props}) {
     const [isEditing, setIsEditing] = useState(false);
     return (
         <div className="col-12 col-md-8">
@@ -18,7 +18,8 @@ export default function Detail({activeWord, children, ...props}) {
                         <p onClick={() => setIsEditing(true)} key={example.id}>{example.value}</p>
                     ))}
                 </>
-            )}
+                ) }
+            <button type="button" className="material-icons" onClick={() => handleOnDelete(activeWord)}>delete</button>
         </div>
     )
 }

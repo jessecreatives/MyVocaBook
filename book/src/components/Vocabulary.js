@@ -45,6 +45,11 @@ export default function Vocabulary() {
         setActiveWord({ ...activeWord, examples: [...activeWord.examples.map(example => example.id === e.target.name ? {...example, value: e.target.value} : example)] });
     }
 
+    const handleOnDelete = (word) => {
+        setIsDetailOpen(false);
+        setWords(words.filter(w => w.id !== word.id));
+    }
+
     return (
         <>
             <Header /> 
@@ -52,7 +57,8 @@ export default function Vocabulary() {
                 {/* sidebar */ }
                 <Sidebar words={words} onClick={handleOnClick} />
                 {/* detail */ }
-                <Detail activeWord={ activeWord }>
+                { isDetailOpen && (
+                    <Detail activeWord={ activeWord } handleOnDelete={handleOnDelete}>
                     <input type="text" name="title" value={ activeWord.title } onChange={handleOnChange}/>
                     <input type="text" name="pronounce" value={ activeWord.pronounce } onChange={ handleOnChange } />
                     { activeWord.definitions.map(definition => (
@@ -62,6 +68,7 @@ export default function Vocabulary() {
                         <input key={example.id} type="text" name={example.id} value={ example.value } onChange={ handleOnExampleChange } />
                     ))}
                 </Detail>
+                )}
             </div>
         </>
     )
