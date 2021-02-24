@@ -15,10 +15,10 @@ export const data = {
                     id: 0,
                     title: '幸せ',
                     pronounce: 'しあわせ',
-                    definitions: [
-                        'とても気持ちいい',
-                        '嬉しいこと'
-                    ],
+                    definitions: {
+                        definition1: 'とても気持ちいい',
+                        definition2: '嬉しいこと'
+                    },
                     examples: [
                         '私は幸せに感じています。',
                         '美味しいものを食べて幸せ！'
@@ -53,9 +53,9 @@ export const data = {
                     id: 0,
                     title: 'pretext',
                     pronounce: 'pri-tekst',
-                    definitions: [
-                        'a reason given in justification of a course of action that is not the real reason.'
-                    ],
+                    definitions: {
+                        definition1: 'a reason given in justification of a course of action that is not the real reason.'
+                    },
                     examples: [
                         'the rebels had the perfect pretext for making their move',
                         'That was just a pretext'
@@ -65,12 +65,12 @@ export const data = {
                     id: 1,
                     title: 'hard',
                     pronounce: 'ha-d',
-                    definitions: [
-                        'solid, firm, and rigid; not easily broken, bent, or pierced.',
-                        'done with a great deal of force or strength.',
-                        'with a great deal of effort.',
-                        'so as to be solid or firm.'
-                    ],
+                    definitions: {
+                        definition1: 'solid, firm, and rigid; not easily broken, bent, or pierced.',
+                        definition2: 'done with a great deal of force or strength.',
+                        definition3: 'with a great deal of effort.',
+                        definition4: 'so as to be solid or firm.'
+                    },
                     examples: [
                         'the slate broke on the hard floor',
                         'a hard whack',

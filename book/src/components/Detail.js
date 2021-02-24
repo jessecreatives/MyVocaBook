@@ -9,7 +9,10 @@ export default function Detail({info, children, ...props}) {
             ) : (
                 <>
                     <h2 onClick={() => setIsEditing(true)}>{info.title}</h2>
-                    <p onClick={() => setIsEditing(true)}>{info.pronounce}</p>
+                        <p onClick={ () => setIsEditing(true) }>{ info.pronounce }</p>
+                        {info.definitions.map(definition => (
+                        <p>{definition}</p>
+                    ))}
                 </>
             )}
         </div>

@@ -13,7 +13,8 @@ export default function Vocabulary() {
     const [info, setInfo] = useState({
         id: null,
         title: '',
-        pronounce: ''
+        pronounce: '',
+        definitions: []
     });
 
     const [words, setWords] = useState(lang.words);
@@ -26,8 +27,8 @@ export default function Vocabulary() {
 
     const handleOnClick = (e) => {
         const word = words.find(word => word.id.toString() === e.target.name);
-        const { id, title, pronounce } = word;
-        setInfo({id, title, pronounce});
+        const { id, title, pronounce, definitions } = word;
+        setInfo({id, title, pronounce, definitions});
         setIsDetailOpen(!isDetailOpen);
     }
 
@@ -44,7 +45,10 @@ export default function Vocabulary() {
                 {/* detail */ }
                 <Detail info={ info }>
                     <input type="text" name="title" value={ info.title } onChange={handleOnChange}/>
-                    <input type="text" name="pronounce" value={ info.pronounce } onChange={handleOnChange}/>
+                    <input type="text" name="pronounce" value={ info.pronounce } onChange={ handleOnChange } />
+                    { info.definitions.map((definition, i) => (
+                        <input key={i} type="text" name={`definition${i+1}`} value={ info.pronounce } onChange={ handleOnChange } />
+                    ))}
                 </Detail>
             </div>
         </>
