@@ -15,10 +15,16 @@ export const data = {
                     id: 0,
                     title: '幸せ',
                     pronounce: 'しあわせ',
-                    definitions: {
-                        definition1: 'とても気持ちいい',
-                        definition2: '嬉しいこと'
-                    },
+                    definitions: [
+                        {
+                            id: 'definition1',
+                            value: 'とても気持ちいい',
+                        },
+                        {
+                            id: 'definition2',
+                            value: '嬉しいこと'
+                        }
+                    ],
                     examples: [
                         '私は幸せに感じています。',
                         '美味しいものを食べて幸せ！'
@@ -29,7 +35,10 @@ export const data = {
                     title: '成功する',
                     pronounce: 'せいこうする',
                     definitions: [
-                        '望んでいる結果を得ること'
+                        {
+                            id: 'definition1',
+                            value: '望んでいる結果を得ること'
+                        }
                     ],
                     examples: [
                         '私は必ず成功するんだ！',

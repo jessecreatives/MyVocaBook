@@ -10,7 +10,7 @@ export default function Vocabulary() {
 
     const lang = data.languages.find(lang => lang.id === id)
 
-    const [info, setInfo] = useState({
+    const [activeWord, setActiveWord] = useState({
         id: null,
         title: '',
         pronounce: '',
@@ -20,20 +20,24 @@ export default function Vocabulary() {
     const [words, setWords] = useState(lang.words);
     
     useEffect(() => {
-        setWords(words.map(word => word.id === info.id ? {...word, title: info.title} : word))
-    }, [info])
+        setWords(words.map(word => word.id === activeWord.id ? { ...word, ...activeWord } : word))
+    }, [activeWord]);
 
     const [isDetailOpen, setIsDetailOpen] = useState(false);
 
     const handleOnClick = (e) => {
         const word = words.find(word => word.id.toString() === e.target.name);
         const { id, title, pronounce, definitions } = word;
-        setInfo({id, title, pronounce, definitions});
+        setActiveWord({ id, title, pronounce, definitions });
         setIsDetailOpen(!isDetailOpen);
     }
 
     const handleOnChange = (e) => {
-        setInfo({ ...info, [e.target.name]: e.target.value });
+        setActiveWord({ ...activeWord, [e.target.name]: e.target.value });
+    }
+
+    const handleOnDefChange = (e) => {
+        setActiveWord({ ...activeWord, definitions: [...activeWord.definitions.map(d => d.id === e.target.name ? {...d, value: e.target.value} : d)] });
     }
 
     return (
@@ -43,11 +47,11 @@ export default function Vocabulary() {
                 {/* sidebar */ }
                 <Sidebar words={words} onClick={handleOnClick} />
                 {/* detail */ }
-                <Detail info={ info }>
-                    <input type="text" name="title" value={ info.title } onChange={handleOnChange}/>
-                    <input type="text" name="pronounce" value={ info.pronounce } onChange={ handleOnChange } />
-                    { info.definitions.map((definition, i) => (
-                        <input key={i} type="text" name={`definition${i+1}`} value={ info.pronounce } onChange={ handleOnChange } />
+                <Detail activeWord={ activeWord }>
+                    <input type="text" name="title" value={ activeWord.title } onChange={handleOnChange}/>
+                    <input type="text" name="pronounce" value={ activeWord.pronounce } onChange={ handleOnChange } />
+                    { activeWord.definitions.map(definition => (
+                        <input key={definition.id} type="text" name={definition.id} value={ definition.value } onChange={ handleOnDefChange } />
                     ))}
                 </Detail>
             </div>

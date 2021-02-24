@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react';
 
-export default function Detail({info, children, ...props}) {
+export default function Detail({activeWord, children, ...props}) {
     const [isEditing, setIsEditing] = useState(false);
     return (
         <div className="col-12 col-md-8">
@@ -8,10 +8,10 @@ export default function Detail({info, children, ...props}) {
                 <h2 onBlur={() => setIsEditing(false)}>{children}</h2>
             ) : (
                 <>
-                    <h2 onClick={() => setIsEditing(true)}>{info.title}</h2>
-                        <p onClick={ () => setIsEditing(true) }>{ info.pronounce }</p>
-                        {info.definitions.map(definition => (
-                        <p>{definition}</p>
+                    <h2 onClick={() => setIsEditing(true)}>{activeWord.title}</h2>
+                        <p onClick={ () => setIsEditing(true) }>{ activeWord.pronounce }</p>
+                        {activeWord.definitions.map(definition => (
+                        <p onClick={() => setIsEditing(true)} key={definition.id}>{definition.value}</p>
                     ))}
                 </>
             )}
