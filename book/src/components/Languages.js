@@ -27,7 +27,7 @@ export default function Languages() {
                         );
                     }) }
                     <li>
-                        <AddButton />
+                        <AddButton  />
                     </li>
                 </ul>
             </div>
