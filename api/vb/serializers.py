@@ -5,14 +5,12 @@ from .models import Language, Vocabulary, Definition, Example
 class LanguageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Language
-        fields = ['id', 'name', 'vocabularies']
-        depth = 1
+        fields = ['id', 'name']
         
 class VocabularySerializer(serializers.ModelSerializer):
     class Meta:
         model = Vocabulary
-        fields = ['id', 'title', 'pronounce', 'definitions', 'examples', 'created_at']
-        depth = 1
+        fields = ['id', 'title', 'pronounce', 'created_at']
  
 class DefinitionSerializer(serializers.ModelSerializer):
     class Meta:

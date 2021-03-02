@@ -3,14 +3,21 @@ import {Link} from 'react-router-dom';
 
 import '../App.css';
 
-export default function Header() {
+export default function Header({lang}) {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary justify-content-center">
-          <div className="container">
+        <nav className="text-center">
+          <div className="container position-relative py-3">
               <ul className="navbar-nav">
-                  <li className="nav-item"><Link className="nav-link material-icons fs2" to="/">keyboard_backspace</Link></li>
+                    <li className="nav-item"><Link className="nav-link" to="/">
+                        <button className="material-icons fs2 secondary back">
+                            keyboard_backspace
+                        </button>
+                    </Link></li>
               </ul>
-              <h1 className="fs2 navbar-brand text-light">Vocabulary Book</h1>
+                <h1 className="fs1 navbar-brand text-center secondary en">{lang.name}</h1>
+                <button className="material-icons settings secondary">
+                    settings
+                </button>
           </div>
         </nav>
     )

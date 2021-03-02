@@ -1,14 +1,23 @@
-import React from 'react'
+import React from 'react';
+import Button from './Button';
+import AddButton from './AddButton';
 
 export default function Sidebar({words, onClick}) {
     return (
-        <div className="col-12 col-md-4">
+        <div className="bg-white container col-12 col-md-4">
             <ul>
                 { words.map(word => (
-                    <li key={ word.title }>
-                        <button type="button" name={word.id} onClick={onClick}>{ word.title }</button>
+                    <li key={ word.title } className="mb-5">
+                        <Button
+                            label={ word.title }
+                            name={ word.id }
+                            onClick={ onClick }
+                        />
                     </li>
-                ))}
+                )) }
+                <li>
+                    <AddButton />
+                </li>
             </ul>
         </div>
     ) 

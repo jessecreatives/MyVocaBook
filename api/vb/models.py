@@ -24,8 +24,6 @@ class Vocabulary(models.Model):
     title = models.CharField(max_length=100)
     pronounce = models.CharField(max_length=100)
     created_at = models.DateField(auto_now_add=False)
-    
-    tags = TaggableManager()
 
     class Meta:
         """Meta definition for Vocabulary."""

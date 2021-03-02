@@ -52,7 +52,7 @@ export default function Vocabulary() {
 
     return (
         <>
-            <Header /> 
+            <Header lang={lang} /> 
             <div className="row">
                 {/* sidebar */ }
                 <Sidebar words={words} onClick={handleOnClick} />

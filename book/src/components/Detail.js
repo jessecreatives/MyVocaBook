@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 export default function Detail({activeWord, children, handleOnDelete, ...props}) {
     const [isEditing, setIsEditing] = useState(false);
     return (
-        <div className="col-12 col-md-8">
+        <div className="bg-white container col-12 col-md-8">
             {isEditing ? (
                 <h2 onBlur={() => setIsEditing(false)}>{children}</h2>
             ) : (
