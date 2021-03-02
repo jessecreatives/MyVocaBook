@@ -4,21 +4,23 @@ import AddButton from './AddButton';
 
 export default function Sidebar({words, onClick}) {
     return (
-        <div className="bg-white container col-12 col-md-4">
-            <ul>
-                { words.map(word => (
-                    <li key={ word.title } className="mb-5">
-                        <Button
-                            label={ word.title }
-                            name={ word.id }
-                            onClick={ onClick }
-                        />
+        <div className="col-12 col-md-4">
+            <div className="bg-white">
+                <ul>
+                    { words.map(word => (
+                        <li key={ word.title } className="mb-5">
+                            <Button
+                                label={ word.title }
+                                name={ word.id }
+                                onClick={ onClick }
+                            />
+                        </li>
+                    )) }
+                    <li>
+                        <AddButton />
                     </li>
-                )) }
-                <li>
-                    <AddButton />
-                </li>
-            </ul>
+                </ul>
+            </div>
         </div>
     ) 
 }

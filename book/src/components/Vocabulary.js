@@ -30,7 +30,8 @@ export default function Vocabulary() {
         const word = words.find(word => word.id.toString() === e.target.name);
         const { id, title, pronounce, definitions, examples } = word;
         setActiveWord({ id, title, pronounce, definitions, examples });
-        setIsDetailOpen(!isDetailOpen);
+        setIsDetailOpen(true);
+        e.preventDefault();
     }
 
     const handleOnChange = (e) => {
@@ -53,7 +54,7 @@ export default function Vocabulary() {
     return (
         <>
             <Header lang={lang} /> 
-            <div className="row">
+            <div className="row container">
                 {/* sidebar */ }
                 <Sidebar words={words} onClick={handleOnClick} />
                 {/* detail */ }
