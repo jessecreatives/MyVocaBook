@@ -135,3 +135,22 @@ export const data = {
         },
     ]
 };
+
+export const meta = {
+    jp: {
+        newVocabFormLegend: "新単語追加",
+        title: "単語",
+        pronounce: "発音",
+        definition: "定義",
+        example: "例文",
+        submit: "追加"
+    },
+    en: {
+        newVocabFormLegend: "New Vocabulary",
+        title: "vocabulary",
+        pronounce: "pronounce",
+        definition: "definition",
+        example: "example",
+        submit: "Add"
+    }
+}

@@ -20,7 +20,7 @@ export default function Languages() {
                                     <Button
                                         label={ lang.name }
                                         name=""
-                                        onClick=""
+                                        onClick={() => console.log('Hi')}
                                     />
                                 </Link>
                             </li>

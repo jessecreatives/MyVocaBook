@@ -2,7 +2,7 @@ import React from 'react';
 import Button from './Button';
 import AddButton from './AddButton';
 
-export default function Sidebar({words, onClick}) {
+export default function Sidebar({words, onClick, onClickAddVocab}) {
     return (
         <div className="col-12 col-md-4">
             <div className="bg-white">
@@ -17,7 +17,7 @@ export default function Sidebar({words, onClick}) {
                         </li>
                     )) }
                     <li>
-                        <AddButton />
+                        <AddButton onClick={onClickAddVocab} />
                     </li>
                 </ul>
             </div>
